@@ -31,7 +31,8 @@ print("erreur !", file=__import__("sys").stderr)
 
 ## `input()` — Description
 
-Lit une ligne au clavier et la renvoie **toujours sous forme de `str`**.
+Lit une ligne au clavier et la renvoie **toujours sous forme de `str`**. \
+[`plus sur input ->`](/docs/python/fonctions/quelques-fonctions-utils#input)
 
 ```python
 age = int(input("Votre âge ? "))     # convertir soi-même

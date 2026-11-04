@@ -6,7 +6,7 @@ order: 1
 
 ## Une variable est une étiquette
 
-En Python, `x = 5` ne « range » pas 5 dans une boîte : il **attache le nom `x` à l’objet `5`**. Le type appartient à la *valeur*, pas au nom.
+En Python, `x = 5` ne **range** pas 5 dans une boîte : il **attache le nom `x` à l’objet `5`**. Le type appartient à la *valeur*, pas au nom.
 
 ```python
 x = 5          # x désigne un int
@@ -55,7 +55,10 @@ bool("")         # False  (vide → False)
 ## Noms de variables
 
 - Lettres, chiffres, `_` ; ne commence pas par un chiffre ; sensible à la casse.
-- Convention (PEP 8) : `snake_case` pour variables et fonctions, `MAJUSCULES` pour les constantes, `PascalCase` pour les classes.
+- Convention (PEP 8) : 
+  - `snake_case` pour variables et fonctions
+  - `MAJUSCULES` pour les constantes
+  - `PascalCase` pour les classes.
 - Évitez d’écraser des noms intégrés : `list`, `dict`, `str`, `id`, `input`…
 
 ## Pièges courants

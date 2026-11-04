@@ -18,8 +18,8 @@ mixte = [1, "deux", 3.0, [4, 5]]
 
 ```python
 nombres[0]       # 3
-nombres[-1]      # 2
-nombres[0:2]     # [3, 1]   (copie)
+nombres[-1]      # 2 (derniere element de la liste)
+nombres[0:2]     # [3, 1]   (de l'element a l'indice 0 a 2 non inclus)
 nombres[::2]     # [3, 2]   (un sur deux)
 len(nombres)     # 3
 ```
@@ -45,7 +45,9 @@ dernier = l.pop()    # 4
 
 ## Trier : `sort()` ou `sorted()`
 
-`l.sort()` modifie la liste ; `sorted(iterable)` en renvoie une **nouvelle** et accepte tout itérable. Les deux prennent `key` et `reverse` :
+`l.sort()` modifie la liste ; \
+`sorted(iterable)` en renvoie une **nouvelle** et accepte tout itérable. \
+Les deux prennent `key` et `reverse` :
 
 ```python
 mots = ["pomme", "kiwi", "banane"]
@@ -65,10 +67,17 @@ Une copie *superficielle* duplique la liste mais pas les objets qu’elle contie
 
 ## Parcourir
 
+```python 
+for i in ["a", "b"]:
+    print(i)
+```
+
+Avec `enumerate`
 ```python
 for i, valeur in enumerate(["a", "b"], start=1):
     print(i, valeur)          # 1 a / 2 b
 ```
+Comprendre [`enumerate()`](/docs/python/fonctions/quelques-fonctions-utils#enumerate)
 
 ## Pièges courants
 

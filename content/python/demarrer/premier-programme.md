@@ -12,6 +12,7 @@ Créez un fichier `bonjour.py` :
 nom = input("Votre prénom ? ")
 print(f"Bonjour {nom} !")
 ```
+Savoir plus sur [`input ->`](/docs/python/fonctions/quelques-fonctions-utils#input)
 
 Exécutez-le depuis un terminal ouvert dans le même dossier :
 
@@ -21,10 +22,10 @@ python3 bonjour.py
 
 ## Ce qu’il faut savoir tout de suite
 
-- **L’indentation fait partie de la syntaxe.** Un bloc (après `if`, `for`, `def`…) est délimité par le décalage de ses lignes, de **4 espaces** par convention. Pas d’accolades.
-- **Les commentaires** commencent par `#`.
-- **Pas de point-virgule** en fin de ligne.
-- **Le texte est en UTF-8.** Les accents et émojis fonctionnent dans les chaînes et les noms de fichiers.
+- **L’indentation fait partie de la syntaxe :** un bloc (après `if`, `for`, `def`…) est délimité par le décalage de ses lignes, de **4 espaces** par convention. Pas d’accolades.
+- **Les commentaires :** commencent par `#`.
+- **Pas de point-virgule :** en fin de ligne.
+- **Le texte est en UTF-8 :** Les accents et émojis fonctionnent dans les chaînes et les noms de fichiers.
 
 ```python
 # Un bloc se reconnaît à son indentation
