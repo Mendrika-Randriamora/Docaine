@@ -6,7 +6,7 @@ order: 1
 
 ## Description
 
-Une fonction regroupe du code réutilisable sous un nom.
+Dans la programmation, une fonction est une sorte de "boîte noire" qui prend des entrées (appelées paramètres), exécute des instructions, et retourne souvent un résultat. Elle te permet de regrouper des portions de code pour effectuer une tâche spécifique, ce qui aide à organiser et à réutiliser ton code.
 
 ```python
 def aire(largeur, hauteur):
@@ -17,6 +17,30 @@ aire(3, 4)      # 12
 ```
 
 La chaîne en première ligne est la **docstring** : elle documente la fonction (`help(aire)`). Sans `return`, la fonction renvoie `None`.
+
+## Qu’est-ce qu’un paramètre ?
+
+Un **paramètre** est une variable déclarée dans la signature d’une fonction. Il reçoit une valeur à chaque appel, ce qui permet à la fonction de travailler avec des données différentes sans réécrire son code.
+
+```python
+def aire(largeur, hauteur):
+    return largeur * hauteur
+```
+
+Ici, `largeur` et `hauteur` sont les paramètres. Ils n’ont pas de valeur tant que la fonction n’est pas appelée, et leur nom n’existe que dans la fonction.
+
+## Paramètre ou argument ?
+
+Le **paramètre** est la variable dans la définition ; l’**argument** est la valeur concrète fournie lors de l’appel.
+
+```python
+def saluer(nom):        # nom est un paramètre
+    return f"Bonjour {nom}"
+
+saluer("Ada")           # "Ada" est un argument
+```
+
+Ici, le paramètre `nom` reçoit l’argument `"Ada"`. Lors d’un autre appel, le même paramètre peut recevoir une autre valeur : c’est l’argument qui change, pas la définition de la fonction.
 
 ## Types d’arguments
 

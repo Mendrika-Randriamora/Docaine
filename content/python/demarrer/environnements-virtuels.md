@@ -17,7 +17,11 @@ source .venv/bin/activate        # Linux / macOS
 .venv\Scripts\Activate.ps1       # Windows PowerShell
 ```
 
-L’invite du terminal affiche alors `(.venv)`. Pour sortir : `deactivate`.
+L’invite du terminal affiche alors `(.venv)`. 
+Pour sortir : 
+```bash 
+deactivate
+```
 
 ## Installer des paquets
 

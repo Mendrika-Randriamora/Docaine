@@ -10,7 +10,7 @@ Prenez la dernière version stable sur [python.org/downloads](https://www.python
 
 | Système | Méthode recommandée |
 | --- | --- |
-| Windows | Installateur python.org. **Cochez « Add python.exe to PATH »**. |
+| Windows | Installateur python.org. **Cochez « Add python.exe to PATH »**. Si vous utiliser [le python install manager](https://www.python.org/downloads/release/pymanager-264/), vous ne devrais pas avoir de problème |
 | macOS | Installateur python.org, ou `brew install python`. |
 | Linux (Debian/Ubuntu) | `sudo apt install python3 python3-venv python3-pip`. |
 
@@ -23,12 +23,14 @@ python3 --version     # Linux / macOS
 py --version          # Windows (lanceur « py »)
 ```
 
-Résultat attendu : `Python 3.15.x`. Si la commande n’est pas trouvée, le dossier de Python n’est pas dans le `PATH`.
+Résultat attendu : `Python 3.15.x`. Si la commande n’est pas trouvée sur Windows, le dossier de Python n’est pas dans le `PATH`.
+[Click ici](/docs/python/demarrer/probleme-installation)
 
 ## Lancer l’interpréteur
 
 ```bash
-python3
+python3   # Linux / macOs
+py        # Windows
 ```
 
 Vous obtenez l’invite `>>>` (le REPL). Tapez une expression, Python l’évalue et affiche le résultat :
