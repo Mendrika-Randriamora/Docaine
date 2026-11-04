@@ -1,7 +1,7 @@
 ---
 title: Votre premier programme
 description: Écrire, enregistrer et exécuter un script Python.
-order: 2
+order: 3
 ---
 
 ## Un script, c’est un fichier texte

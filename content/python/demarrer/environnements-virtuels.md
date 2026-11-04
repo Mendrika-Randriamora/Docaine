@@ -1,7 +1,7 @@
 ---
 title: Environnements virtuels et pip
 description: Isoler les dépendances de chaque projet avec venv et pip.
-order: 3
+order: 4
 ---
 
 ## Pourquoi
