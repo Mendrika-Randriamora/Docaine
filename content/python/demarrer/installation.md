@@ -1,7 +1,7 @@
 ---
 title: Installer Python
 description: Installer Python 3.15 et vérifier que tout fonctionne.
-order: 1
+order: 2
 ---
 
 ## Télécharger
