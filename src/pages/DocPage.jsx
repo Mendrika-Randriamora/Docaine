@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
 import Markdown from '../components/Markdown.jsx';
 import NotFound from './NotFound.jsx';
+import { ArrowLeft, ArrowRight, Menu, iconProps } from '../components/icons.js';
 import { extractToc, flatPages, getLanguage, getPage } from '../lib/content.js';
 
 export default function DocPage() {
@@ -69,7 +70,7 @@ export default function DocPage() {
   return (
     <div className="doc-layout">
       <button className="menu-toggle" onClick={() => setMenuOpen((o) => !o)} aria-expanded={menuOpen}>
-        ☰ Sommaire — {language.name}
+        <Menu {...iconProps} /> Sommaire — {language.name}
       </button>
 
       <aside className={`sidebar ${menuOpen ? 'open' : ''}`} aria-label="Plan de la documentation">
@@ -103,10 +104,10 @@ export default function DocPage() {
 
         <nav className="pager" aria-label="Pages voisines">
           {prev ? (
-            <Link to={prev.path} className="prev"><small>← Précédent</small><span>{prev.title}</span></Link>
+            <Link to={prev.path} className="prev"><small><ArrowLeft {...iconProps} /> Précédent</small><span>{prev.title}</span></Link>
           ) : <span />}
           {next ? (
-            <Link to={next.path} className="next"><small>Suivant →</small><span>{next.title}</span></Link>
+            <Link to={next.path} className="next"><small>Suivant <ArrowRight {...iconProps} /></small><span>{next.title}</span></Link>
           ) : <span />}
         </nav>
       </article>

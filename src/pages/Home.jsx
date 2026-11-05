@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Wordmark } from '../components/Brand.jsx';
+import { ArrowRight, iconProps } from '../components/icons.js';
 import { languages, firstPagePath } from '../lib/content.js';
 import heroUrl from '../assets/hero.jpg';
 
 const countPages = (l) => l.sections.reduce((n, s) => n + s.pages.length, 0);
-
-function Arrow() {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -31,7 +26,7 @@ export default function Home() {
               Docaine explique l’essentiel, avec du code que vous pouvez copier.
             </p>
             <Link className="btn" to={firstPagePath(languages[0]?.slug ?? 'python')}>
-              Lire la documentation <Arrow />
+              Lire la documentation <ArrowRight {...iconProps} />
             </Link>
           </div>
         </div>
@@ -49,7 +44,7 @@ export default function Home() {
                   {l.meta.tagline}
                 </span>
                 <span className="lang-count">{countPages(l)} pages</span>
-                <Arrow />
+                <ArrowRight {...iconProps} />
               </Link>
             </li>
           ))}
