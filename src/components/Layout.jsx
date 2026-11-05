@@ -28,11 +28,14 @@ function Header({ over, onMenu, onSearch }) {
         </Link>
         <div className="header-actions">
           {!over && (
-            <button className="search-btn" onClick={onSearch} aria-label="Rechercher">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-              <span className="search-label">Rechercher</span>
-              <kbd>/</kbd>
-            </button>
+            <>
+              <button className="search-btn" onClick={onSearch} aria-label="Rechercher">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                <span className="search-label">Rechercher</span>
+                <kbd>/</kbd>
+              </button>
+              <ThemeToggle />
+            </>
           )}
           <button className="menu-btn" onClick={onMenu} aria-label="Ouvrir le menu" aria-haspopup="dialog">
             <Burger />
