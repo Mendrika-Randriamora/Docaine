@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle.jsx';
 import Search from './Search.jsx';
 import { PillIcon, Wordmark } from './Brand.jsx';
+import { ArrowUp, ExternalLink, Menu, Search as SearchIcon, X, iconProps } from './icons.js';
 import { languages, getLanguage } from '../lib/content.js';
 
 const MENU = [
@@ -10,14 +11,6 @@ const MENU = [
   { to: '/contribuer', label: 'Contribuer' },
   { to: '/a-propos', label: 'À propos' },
 ];
-
-function Burger() {
-  return (
-    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
-      <path d="M3 6h18M3 12h18M3 18h18" />
-    </svg>
-  );
-}
 
 function Header({ over, onMenu, onSearch }) {
   return (
@@ -28,14 +21,17 @@ function Header({ over, onMenu, onSearch }) {
         </Link>
         <div className="header-actions">
           {!over && (
-            <button className="search-btn" onClick={onSearch} aria-label="Rechercher">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-              <span className="search-label">Rechercher</span>
-              <kbd>/</kbd>
-            </button>
+            <>
+              <button className="search-btn" onClick={onSearch} aria-label="Rechercher">
+                <SearchIcon {...iconProps} />
+                <span className="search-label">Rechercher</span>
+                <kbd>/</kbd>
+              </button>
+              <ThemeToggle />
+            </>
           )}
           <button className="menu-btn" onClick={onMenu} aria-label="Ouvrir le menu" aria-haspopup="dialog">
-            <Burger />
+            <Menu {...iconProps} />
           </button>
         </div>
       </div>
@@ -63,7 +59,7 @@ function MenuOverlay({ open, onClose, onSearch }) {
   return (
     <div className="menu" role="dialog" aria-modal="true" aria-label="Menu">
       <button ref={closeRef} className="menu-close" onClick={onClose} aria-label="Fermer le menu">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+        <X {...iconProps} />
       </button>
       <nav className="menu-nav" aria-label="Navigation principale">
         {MENU.map((m) => (
@@ -109,10 +105,10 @@ function Footer() {
         <nav className="footer-col" aria-label="Ressources utiles">
           <h4>Ressources utiles</h4>
           <ul>
-            <li><a href="https://docs.python.org/3.15/" target="_blank" rel="noopener noreferrer">Doc officielle de Python ↗</a></li>
-            <li><a href="https://peps.python.org/" target="_blank" rel="noopener noreferrer">PEP, les propositions ↗</a></li>
-            <li><a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPI, les paquets ↗</a></li>
-            <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Télécharger Python ↗</a></li>
+            <li><a href="https://docs.python.org/3.15/" target="_blank" rel="noopener noreferrer">Doc officielle de Python <ExternalLink {...iconProps} /></a></li>
+            <li><a href="https://peps.python.org/" target="_blank" rel="noopener noreferrer">PEP, les propositions <ExternalLink {...iconProps} /></a></li>
+            <li><a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPI, les paquets <ExternalLink {...iconProps} /></a></li>
+            <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Télécharger Python <ExternalLink {...iconProps} /></a></li>
           </ul>
         </nav>
       </div>
@@ -120,7 +116,7 @@ function Footer() {
       <div className="container footer-bottom-wrap">
         <div className="footer-bottom">
           <span>© 2026 Docaine · Contenu reformulé d’après la documentation officielle de Python 3.15.</span>
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Haut de page ↑</button>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Haut de page <ArrowUp {...iconProps} /></button>
         </div>
       </div>
 

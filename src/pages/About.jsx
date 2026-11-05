@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, iconProps } from '../components/icons.js';
 import { languages, firstPagePath } from '../lib/content.js';
 
 export default function About() {
@@ -55,7 +56,7 @@ export default function About() {
               langage, section, page. Le site en tire tout seul le menu, le sommaire, la navigation
               et la recherche. Ajouter une page, c’est ajouter un fichier.
             </p>
-            <p><Link to="/contribuer">Voir comment contribuer →</Link></p>
+            <p><Link to="/contribuer" className="link-arrow">Voir comment contribuer <ArrowRight {...iconProps} /></Link></p>
           </section>
 
           <section>
@@ -63,7 +64,7 @@ export default function About() {
             <p>
               Docaine ne remplace pas la documentation officielle : pour une spécification exacte ou un
               cas limite, c’est elle qui fait foi. Les pages sont reformulées à partir de la documentation de
-              Python 3.15 ; <a href="https://docs.python.org/3.15/" target="_blank" rel="noopener noreferrer">la source reste ici ↗</a>.
+              Python 3.15 ; <a className="link-arrow" href="https://docs.python.org/3.15/" target="_blank" rel="noopener noreferrer">la source reste ici <ExternalLink {...iconProps} /></a>.
             </p>
           </section>
 
