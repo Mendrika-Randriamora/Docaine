@@ -32,18 +32,35 @@ export default function DocPage() {
   // Surligne dans le sommaire la section actuellement lue
   useEffect(() => {
     if (!toc.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: '-80px 0px -70% 0px' }
-    );
-    toc.forEach((t) => {
-      const el = document.getElementById(t.id);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const offset = Math.max(140, Math.min(280, window.innerHeight * 0.26));
+      let current = toc[0].id;
+      for (const t of toc) {
+        const el = document.getElementById(t.id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= offset) current = t.id;
+        else break;
+      }
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) current = toc[toc.length - 1].id;
+      setActiveId(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [toc]);
 
   if (!language || !doc) return <NotFound />;
