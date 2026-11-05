@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeHighlight from 'rehype-highlight';
 import { Link } from 'react-router-dom';
+import { Check, Copy } from 'lucide-react';
 
 function CodeBlock({ children }) {
   const preRef = useRef(null);
@@ -22,7 +23,9 @@ function CodeBlock({ children }) {
     <div className="code">
       <div className="code-bar">
         <span>{lang || 'texte'}</span>
-        <button onClick={copy} aria-live="polite">{copied ? 'Copié ✓' : 'Copier'}</button>
+        <button onClick={copy} aria-live="polite" aria-label={copied ? 'Copié' : 'Copier le code'}>
+          {copied ? <Check size={20} /> : <Copy size={20} />}
+        </button>
       </div>
       <pre ref={preRef}>{children}</pre>
     </div>
