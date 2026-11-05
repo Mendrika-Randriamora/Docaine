@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
 import Markdown from '../components/Markdown.jsx';
 import NotFound from './NotFound.jsx';
-import { ArrowLeft, ArrowRight, Menu, iconProps } from '../components/icons.js';
+import { ArrowLeft, ArrowRight, ListChevronsUpDown, Minimize2, iconProps } from '../components/icons.js';
 import { extractToc, flatPages, getLanguage, getPage } from '../lib/content.js';
 
 export default function DocPage() {
@@ -69,11 +69,7 @@ export default function DocPage() {
 
   return (
     <div className="doc-layout">
-      <button className="menu-toggle" onClick={() => setMenuOpen((o) => !o)} aria-expanded={menuOpen}>
-        <Menu {...iconProps} /> Sommaire — {language.name}
-      </button>
-
-      <aside className={`sidebar ${menuOpen ? 'open' : ''}`} aria-label="Plan de la documentation">
+      <aside id="doc-sidebar" className={`sidebar ${menuOpen ? 'open' : ''}`} aria-label="Plan de la documentation">
         <div className="sidebar-head">
           <strong>{language.name}</strong>
           <span className="card-badge">{language.meta.version}</span>
@@ -91,6 +87,16 @@ export default function DocPage() {
           </div>
         ))}
       </aside>
+
+      <button
+        className="sidebar-fab"
+        onClick={() => setMenuOpen((o) => !o)}
+        aria-expanded={menuOpen}
+        aria-controls="doc-sidebar"
+        aria-label={menuOpen ? 'Fermer le sommaire' : 'Ouvrir le sommaire'}
+      >
+        {menuOpen ? <Minimize2 {...iconProps} size={24} /> : <ListChevronsUpDown {...iconProps} size={24} />}
+      </button>
 
       <article className="doc">
         <nav className="breadcrumb" aria-label="Fil d’Ariane">
