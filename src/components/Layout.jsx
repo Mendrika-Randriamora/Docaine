@@ -20,16 +20,16 @@ function Header({ over, onMenu, onSearch }) {
           {over ? <PillIcon className="brand-pill" /> : <Wordmark className="brand-wordmark" />}
         </Link>
         <div className="header-actions">
-          {!over && (
-            <>
-              <button className="search-btn" onClick={onSearch} aria-label="Rechercher">
-                <SearchIcon {...iconProps} />
+          <button className={`search-btn${over ? ' search-btn--compact' : ''}`} onClick={onSearch} aria-label="Rechercher">
+            <SearchIcon {...iconProps} />
+            {!over && (
+              <>
                 <span className="search-label">Rechercher</span>
                 <kbd>/</kbd>
-              </button>
-              <ThemeToggle />
-            </>
-          )}
+              </>
+            )}
+          </button>
+          <ThemeToggle />
           <button className="menu-btn" onClick={onMenu} aria-label="Ouvrir le menu" aria-haspopup="dialog">
             <Menu {...iconProps} />
           </button>

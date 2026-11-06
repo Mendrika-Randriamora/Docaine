@@ -68,20 +68,20 @@ export default function Search({ open, onClose }) {
           placeholder="Rechercher dans la documentation…"
           aria-label="Rechercher"
         />
-        <ul className="search-results">
-          {results.map((r, i) => (
-            <li key={r.id}>
-              <button className={i === active ? 'active' : ''} onMouseEnter={() => setActive(i)} onClick={() => go(r.id)}>
-                <span className="sr-title">{r.title}</span>
-                <span className="sr-meta">{r.lang} · {r.section}</span>
-                <span className="sr-desc">{r.description}</span>
-              </button>
-            </li>
-          ))}
-          {query.trim() && results.length === 0 && <li className="sr-empty">Aucun résultat pour « {query} »</li>}
-          {!query.trim() && <li className="sr-empty">Tapez un mot-clé : « dict », « async », « f-string »…</li>}
-        </ul>
-        <div className="search-foot"><kbd>↑</kbd><kbd>↓</kbd> naviguer <kbd>↵</kbd> ouvrir <kbd>Échap</kbd> fermer</div>
+        {query.trim() && (
+          <ul className="search-results">
+            {results.map((r, i) => (
+              <li key={r.id}>
+                <button className={i === active ? 'active' : ''} onMouseEnter={() => setActive(i)} onClick={() => go(r.id)}>
+                  <span className="sr-title">{r.title}</span>
+                  <span className="sr-meta">{r.lang} · {r.section}</span>
+                  <span className="sr-desc">{r.description}</span>
+                </button>
+              </li>
+            ))}
+            {results.length === 0 && <li className="sr-empty">Aucun résultat pour « {query} »</li>}
+          </ul>
+        )}
       </div>
     </div>
   );
