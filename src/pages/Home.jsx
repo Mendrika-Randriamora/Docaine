@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Wordmark } from '../components/Brand.jsx';
 import { ArrowRight, iconProps } from '../components/icons.js';
 import { languages, firstPagePath } from '../lib/content.js';
-import heroUrl from '../assets/hero.jpg';
+import heroUrl from '../assets/new-hero.jpg';
 
 const countPages = (l) => l.sections.reduce((n, s) => n + s.pages.length, 0);
 
